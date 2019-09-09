@@ -4,6 +4,8 @@ octave-rpi-gpio
 Adds support for reading GPIO pins and SPI.
 ===============
 
+Please note that this repository is presently being tested by a group of students using Raspberry Pi 3B+. --EL
+
 GNU Octave wrapper around libbcm2835 for GPIO control of the RaspberryPI IOs
 
 Oct wrapper v0.0.1 around libbcm2835
