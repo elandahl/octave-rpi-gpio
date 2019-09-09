@@ -31,8 +31,9 @@ Oct wrapper v0.0.1 around libbcm2835
 4.) Test it (run octave as root to have GPIO access rights)
 ```
    $ sudo octave
-   execute simple Test with GPIO 7 (lower right edge, see here http://elinux.org/RPi_Low-level_peripherals)
-   Attention: there is also a Revision2 with different GPIO layout
+   execute simple Test.  Physically connect MOSI to MISO; also physically connect Pins 26 and 19.
+   Turns on and off Pin 26, reading Pin 19 each time.
+   Sends a test byte 0x23 to SPI.  Receives the decimal equivalent when looped-thru of decimal 35.
 
    octave:1> test_bcm2835oct
 ```
