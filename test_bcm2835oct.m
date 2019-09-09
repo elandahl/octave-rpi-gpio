@@ -2,7 +2,8 @@
 ## 14.01.2013 Andreas Weber
 ##
 ## Modified by Eric Landahl, Sept. 8, 2019
-## gpiotester.m adds additional capabilities
+## connect Pins 19 and 26 to test gpio read
+## connect MOSI and MISO to test spi
 
 bcm2835_init()
 
