@@ -3,6 +3,9 @@
 
  stub for an octave wrapper around the bcm2835 lib from
  http://www.open.com.au/mikem/bcm2835/
+
+ Added simple SPI and GPIO read capbilities
+ Eric Landahl, September 9, 2019
 */
 
 #include <octave/oct.h>
@@ -87,5 +90,83 @@ TDOD: document me!\n\
   int pin = args(0).int_value();
 
   bcm2835_gpio_clr (pin);
+  return retval;
+}
+
+DEFUN_DLD (bcm2835_gpio_lev, args, nargout,
+  "-*- texinfo -*-\n\
+@deftypefn  {} bcm2835_gpio_lev (@var{pin})\n\
+TDOD: document me!\n\
+@end deftypefn")
+{
+  octave_value_list retval;
+  int nargin = args.length ();
+  if (nargin !=1)
+    {
+      print_usage ();
+    }
+  int pin = args(0).int_value();
+
+  octave_value tmp =  bcm2835_gpio_lev (pin);
+  tmp.print (octave_stdout);
+  retval = tmp;
+
+  return retval;
+}
+
+DEFUN_DLD (bcm2835_spi_transfer, args, nargout,
+  "-*- texinfo -*-\n\
+@deftypefn  {} bcm2835_spi_transfer (@var{data_send})\n\
+TDOD: document me!\n\
+@end deftypefn")
+{
+  octave_value_list retval;
+  int nargin = args.length ();
+  if (nargin !=1)
+    {
+      print_usage ();
+    }
+  int data_send = args(0).int_value();
+
+  octave_value tmp =  bcm2835_spi_transfer (data_send);
+  tmp.print (octave_stdout);
+  retval = tmp;
+
+  return retval;
+}
+
+DEFUN_DLD (bcm2835_spi_begin, args, nargout,
+  "-*- texinfo -*-\n\
+@deftypefn  {} bcm2835_spi_begin ()\n\
+TDOD: document me!\n\
+@end deftypefn")
+{
+  octave_value_list retval;
+  int nargin = args.length ();
+  if (nargin !=0)
+    {
+      print_usage ();
+    }
+
+  octave_value tmp =  bcm2835_spi_begin ();
+  tmp.print (octave_stdout);
+  retval = tmp;
+
+  return retval;
+}
+
+DEFUN_DLD (bcm2835_spi_end, args, nargout,
+  "-*- texinfo -*-\n\
+@deftypefn  {} bcm2835_spi_end ()\n\
+TDOD: document me!\n\
+@end deftypefn")
+{
+  octave_value_list retval;
+  int nargin = args.length ();
+  if (nargin !=0)
+    {
+      print_usage ();
+    }
+
   return retval;
 }
